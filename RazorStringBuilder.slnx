@@ -1,0 +1,17 @@
+﻿<Solution>
+  <Folder Name="/common/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/common/workflows/" />
+  <Folder Name="/sample/">
+    <Project Path="sample\RazorStringBuilder.Sample\RazorStringBuilder.Sample.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src\ronimizy.RazorStringBuilder\ronimizy.RazorStringBuilder.csproj" Type="Classic C#" />
+    <Project Path="src\ronimizy.RazorStringBuilder.Analyzers\ronimizy.RazorStringBuilder.Analyzers.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests\RazorStringBuilder.Tests\RazorStringBuilder.Tests.csproj" Type="Classic C#" />
+  </Folder>
+</Solution>

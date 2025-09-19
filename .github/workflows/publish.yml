@@ -1,0 +1,48 @@
+name: Build & Publish SDK package
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/**'
+      - '.github/workflows/publish.yml'
+      - '*.props'
+  
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    name: Build & Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 9.0.x
+
+      - name: restore
+        run: |
+          dotnet restore
+
+      - name: build
+        run: |
+          dotnet build -c Release --no-restore /p:GeneratePackageOnBuild=false
+          dotnet build -c Release --no-restore /p:PatchVersion=${{ github.run_number }}
+
+      - name: collect packages
+        run: |
+          mkdir .packages
+          
+          mv src/ronimizy.RazorStringBuilder/bin/Release/*.nupkg .packages/
+          mv src/ronimizy.RazorStringBuilder.Analyzers/bin/Release/*.nupkg .packages/
+
+      - name: Publish SDK package
+        run: |
+          for file in .packages/*.nupkg
+          do
+            dotnet nuget push "${file#/}" --source "nuget.org" --api-key ${{ secrets.NUGET_API_KEY }} 
+          done

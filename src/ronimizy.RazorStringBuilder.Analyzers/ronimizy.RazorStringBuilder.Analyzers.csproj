@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+
+        <IsRazorSdkComponent>true</IsRazorSdkComponent>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>ronimizy</Authors>
+        <Description>Source generators for compiling Razor files as string builders</Description>
+        <PackageProjectUrl>https://github.com/ronimizy/razor-string-builder</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ronimizy-razor-string-builder</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Version>1.0.$(PatchVersion)-alpha</Version>
+        <PackageReleaseNotes>
+            Implemented RazorStringBuilderGenerator
+        </PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ronimizy.Razor.Sdk" PrivateAssets="all"/>
+        <PackageReference Include="ronimizy.Razor.Sdk.Analyzers"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(OutputPath)$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+    </ItemGroup>
+
+</Project>

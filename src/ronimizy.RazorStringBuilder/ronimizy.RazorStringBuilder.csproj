@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>ronimizy</Authors>
+        <Description>Razor compiler to string builders</Description>
+        <PackageProjectUrl>https://github.com/ronimizy/razor-string-builder</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ronimizy-razor-string-builder</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Version>1.0.$(PatchVersion)-alpha</Version>
+        <PackageReleaseNotes>
+        </PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ronimizy.RazorStringBuilder.Analyzers\ronimizy.RazorStringBuilder.Analyzers.csproj" />
+    </ItemGroup>
+
+</Project>

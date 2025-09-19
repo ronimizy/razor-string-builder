@@ -1,0 +1,11 @@
+select
+@if (string.IsNullOrEmpty(Data) is false)
+{
+    <div>data</div>
+}
+from table
+where data like :data
+
+@code {
+    public required string? Data { get; set; }
+}
