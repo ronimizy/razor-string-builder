@@ -11,10 +11,8 @@
     <ItemGroup>
         <ProjectReference Include="..\..\src\ronimizy.RazorStringBuilder\ronimizy.RazorStringBuilder.csproj"/>
         <ProjectReference Include="..\..\src\ronimizy.RazorStringBuilder.Analyzers\ronimizy.RazorStringBuilder.Analyzers.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" OutputItemType="Analyzer"/>
-        <PackageReference Include="ronimizy.Razor.Sdk.Analyzers"/>
 
-        <PackageReference Include="Microsoft.Extensions.ObjectPool" GeneratePathProperty="true"/>
-        <Analyzer Include="$(PkgMicrosoft_Extensions_ObjectPool)\lib\netstandard2.0\*.dll"/>
+        <PackageReference Include="ronimizy.Razor.Sdk.Analyzers"/>
     </ItemGroup>
 
 </Project>
